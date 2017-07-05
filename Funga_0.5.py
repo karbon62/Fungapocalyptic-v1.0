@@ -1,4 +1,5 @@
-import pprint 
+
+import pprint
 from sys import exit
 from random import randint
 
@@ -30,7 +31,7 @@ class Death(Scene):
 		#return 'gameover_screen'
 
 
-class FirstLevel(Scene):
+class Intro(Scene):
 
 	def enter(self):
 		print ("\n==========================================================================================================================================================")
@@ -97,12 +98,12 @@ class AttackSecondWave(Scene):
 		print ("Hello Again, I see that you've passed through to the second wave!")
 		print ("\n============================================================================================")
 
-		action = input ("if you need 5 fungus to eliminate them all, how many will you need to plant in total?")
+		action = input ("Now How many will you need to elimiate 5 spores?")
 
-		if action == "125":
+		if action == "30":
 			return 'attack_third_wave'
 
-		elif action != "125":
+		elif action != "30":
 			return 'first_level'
 
 		else:
@@ -173,7 +174,7 @@ class ScoreBoard(Scene):
 class Map(object):
 
 	scenes = {
-		'first_level': FirstLevel(),
+		'first_level': Intro(),
 		'attack_first_wave': AttackFirstWave(),
 		'attack_second_wave': AttackSecondWave(),
 		'attack_third_wave': AttackThirdWave(),
