@@ -2,6 +2,7 @@
 import pprint
 from sys import exit
 from random import randint
+from FungaStoryText import *
 
 class Scene(object):
 
@@ -12,22 +13,27 @@ class Engine(object):
 
 	def __init__(self, scene_map):
 		self.scene_map = scene_map
+        #self.score_table = score_table
 
 	def play(self):
 		current_scene = self.scene_map.opening_scene()
+        #enter_score = self.score_table
 
 		while True:
 			next_scene_name = current_scene.enter()
 			current_scene = self.scene_map.next_scene(next_scene_name)
 
+            #if scene_map == gameover_screen:
+            #    return enter_score
+
+
 
 class Death(Scene):
-	def enter(self):
-		print ("There is only... profound sadness.....",)
-		print ("We were all counting on you. Please dont give up on us now, we need your help!")
-		print ("\n============================================================================")
-
-		return 'first_level'
+    def enter(self):
+        print ("{}".format(deathStart))
+        print ("{}".format(deathEnd))
+	#	print ("\n============================================================================")
+        return 'first_level'
 		#return 'gameover_screen'
 
 
@@ -139,7 +145,7 @@ class AttackThirdWave(Scene):
 			print ("We were all counting on you. Please dont give up on us now, we need your help!")
 			print ("\n============================================================================")
 			return 'first_level'
-			return 'game_over_screen'
+			#return 'game_over_screen'
 
 
 class PlayerDetails(Scene):
@@ -150,11 +156,11 @@ class PlayerDetails(Scene):
         print ("you entered")
         print ("\n==========")
 
-class GameOverScreen(Scene):
+#class GameOverScreen(Scene):
 
-	def game_over_screen(self):
-		print ("Game Over")
-		return 'score_board'
+	#def game_over_screen(self):
+		#print ("Game Over")
+		#return 'score_board'
 
 class ScoreBoard(Scene):
 
@@ -180,7 +186,7 @@ class Map(object):
 		'attack_third_wave': AttackThirdWave(),
 		'death': Death(),
 		'player_details': PlayerDetails(),
-		'game_over_screen': GameOverScreen(),
+		#'game_over_screen': GameOverScreen(),
 		'score_board': ScoreBoard(),
 
 	}

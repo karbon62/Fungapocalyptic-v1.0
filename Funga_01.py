@@ -26,8 +26,6 @@ class Death(Scene):
 		print ("\n============================================================================")
 
 		return 'first_level'
-		#return 'gameover_screen'
-
 
 class FirstLevel(Scene):
 
@@ -109,9 +107,6 @@ class AttackSecondWave(Scene):
 			print ("You imbecile, you couldn't even get through the first wave, we shouldn't of have depended on you, what is left is only profound sadness.....")
 			print ("\n==========================================================================================================================================")
 			return 'first_level'
-			#return Score board
-			#return 'first_level'
-			#return 'gameover_screen'
 
 
 class AttackThirdWave(Scene):
